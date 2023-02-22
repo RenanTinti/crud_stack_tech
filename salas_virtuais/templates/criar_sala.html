@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1 class="text-3xl font-bold mb-3">Criar Sala</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+
+    <input type="submit" value="Salvar">
+</form>
+
+{% endblock %}
