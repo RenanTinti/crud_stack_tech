@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1 class="text-3xl font-bold mb-3">Excluir Sala</h1>
+
+<h3>Tem certeza que deseja excluir {{ sala.nome }}</h3>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Excluir">
+</form>
+
+<a href="{% url 'index' %}">Voltar</a>
+
+
+
+{% endblock %}

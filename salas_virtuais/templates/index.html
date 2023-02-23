@@ -5,13 +5,13 @@
 <a href="{% url 'criar_sala' %}">Criar Sala +</a>
 <ul>
     {% for sala in salas %}
-    <li>{{ sala.nome }}</li>
-    <li>{{ sala.descricao }}</li>
-    <li>{{ sala.categoria }}</li>
-    <li>{{ sala.limite_participantes }}</li>
-    <li>{{ sala.data_criacao }}</li>
-    <li><a href="">Atualizar</a></li>
-    <li><a href="">Deletar</a></li>
+    <li>Nome da sala: {{ sala.nome }}</li>
+    <li>Descrição: {{ sala.descricao }}</li>
+    <li>Categoria: {{ sala.get_categoria_display }}</li>
+    <li>Limite de participantes: {{ sala.limite_participantes }}</li>
+    <li>Data de criação: {{ sala.data_criacao }}</li>
+    <li><a href="{% url 'editar_sala' sala.id %}">Atualizar</a></li>
+    <li><a href="{% url 'excluir_sala' sala.id %}">Deletar</a></li>
     {% endfor %}
 </ul>
 
