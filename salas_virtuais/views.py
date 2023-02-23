@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Sala
-from .forms import SalaForm
+from .models import CATEGORIAS
 
 # Create your views here.
 def index(request):
@@ -11,14 +11,8 @@ def index(request):
     return render(request, 'index.html', context)
 
 def criar_sala(request):
-    form = SalaForm()
-    if request.method == 'POST':
-        form = SalaForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-
+    categorias = CATEGORIAS
     context = {
-        'form': form,
+        'categorias': categorias
     }
     return render(request, 'criar_sala.html', context)

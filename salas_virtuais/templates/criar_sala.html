@@ -4,10 +4,21 @@
 <h1 class="text-3xl font-bold mb-3">Criar Sala</h1>
 
 <form method="post">
-    {% csrf_token %}
-    {{ form }}
+    <label for="sala-nome">Nome:</label>
+    <input type="text" name="sala-nome" id="sala-nome">
+    <label for="sala-nome">Descrição:</label>
+    <input type="text" name="sala-descricao" id="sala-descricao">
+    <label for="sala-nome">Categoria:</label>
+    <select name="sala-categoria" id="sala-categoria">
+        <option selected disabled>---------</option>
+    {% for categoria in categorias %}
+        <option value="{{ categoria.0 }}">{{ categoria.1 }}</option>
+    {% endfor %}
+    </select>
+    <label for="sala-nome" id="sala-limite">Limite:</label>
+    <input type="number" name="sala-limite" id="sala-limite" value="1" min="1" max="99">
 
-    <input type="submit" value="Salvar">
+    <input type="submit" value="Criar">
 </form>
 
 {% endblock %}

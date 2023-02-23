@@ -11,7 +11,7 @@ CATEGORIAS = (
 
 class Sala(models.Model):
     nome = models.CharField(max_length=100)
-    descricao = models.TextField(max_length=500)
+    descricao = models.CharField(max_length=255)
     categoria = models.CharField(choices=CATEGORIAS, max_length=100)
     limite_participantes = models.IntegerField(default=50)
     data_criacao = models.DateTimeField(auto_now_add=True)
